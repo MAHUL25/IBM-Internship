@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CreditCard/homepage.css' %}">
+</head>
+<body>
+    <div class="allabove">
+        <div class="header"> 
+            <div class="uparkamala">
+                <div class="MJProject">
+                    <ul>
+                        <li>
+                            MAJOR PROJECT
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar">
+                    <nav>
+                        <ul>
+                            <li class="right-items"><a href="#">About</a></li>
+                            <!-- <li class="right-items"><a href="Minor_contact.html">Contact</a></li> -->
+                            <li class="right-items" id="home"><a href="{% url 'credit_fraud:index' %}">Home</a></li>
+                            <li class="right-items"><a href="{% url 'credit_fraud:loginPage' %}">Login/Signup</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1 style="color: #fff;">{{ value }}</h1>
+            <a href="{% url 'credit_fraud:Theform' %}" class="button">Click Me</a>
+        </div>
+    </div>
+</body>
+</html>

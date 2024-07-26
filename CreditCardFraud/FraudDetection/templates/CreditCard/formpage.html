@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card and User Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'CreditCard/formpage.css' %}">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>User Information</h2>
+                <p>Please fill in your details below</p>
+            </div>
+            <div class="row">
+                <div class="contact-info">
+                </div>
+                <div class="contact-form">
+                    <h2>Verify Your Details</h2>
+                    <form id="userInfoForm" method="post">
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <input type="text" id="timeInSecs" name="timeInSecs" required pattern="\d+" placeholder=" ">
+                            <span><i class='bx bxs-time-five'></i> Time in Secs</span>
+                            <span class="error" id="timeInSecsError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="amount" name="amount" required pattern="\d+(\.\d{2})?" placeholder=" ">
+                            <span><i class='bx bx-rupee'></i> Amount</span>
+                            <span class="error" id="amountError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="accountNumber" name="accountNumber" placeholder=" ">
+                            <span><i class='bx bxs-user'></i> Account Number</span>
+                            <span class="error" id="accountNumberError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="creditCardNumber" name="creditCardNumber" placeholder=" ">
+                            <span><i class='bx bxl-mastercard'></i> Card Number</span>
+                            <span class="error" id="creditCardNumberError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="creditCardCVV" name="creditCardCVV" required pattern="\d{3}" placeholder=" ">
+                            <span><i class='bx bxs-wallet'></i> CVV</span>
+                            <span class="error" id="creditCardCVVError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="creditCardExpiry" name="creditCardExpiry" placeholder=" ">
+                            <span><i class='bx bxs-calendar'></i> Expiry Date (MM/YY)</span>
+                            <span class="error" id="creditCardExpiryError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="creditScore" name="creditScore" required pattern="\d{3}" placeholder=" ">
+                            <span><i class='bx bxs-credit-card-front'></i> Credit Score</span>
+                            <span class="error" id="creditScoreError"></span>
+                        </div>
+                        <div class="input-box">
+                            <input type="submit" class="submit-btn" value="Verify" onclick="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h1 id="output">{{ output }}</h1>
+
+    <!-- <script>
+        function validateForm(formId, validations) {
+            let form = document.getElementById(formId);
+            let isValid = true;
+
+            validations.forEach(validation => {
+                let element = document.getElementById(validation.id);
+                let errorElement = document.getElementById(validation.errorId);
+                errorElement.textContent = '';
+
+                if (!validation.pattern.test(element.value)) {
+                    isValid = false;
+                    errorElement.textContent = validation.errorMessage;
+                }
+            });
+
+            return isValid;
+        }
+
+        document.getElementById('userInfoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let validations = [
+                { id: 'timeInSecs', errorId: 'timeInSecsError', pattern: /^\d+$/, errorMessage: 'Please enter a valid time in seconds.' },
+                { id: 'amount', errorId: 'amountError', pattern: /^\d+(\.\d{2})?$/, errorMessage: 'Please enter a valid amount.' },
+                { id: 'accountNumber', errorId: 'accountNumberError', pattern: /^\d{10,12}$/, errorMessage: 'Please enter a valid account number (10-12 digits).' },
+                { id: 'creditCardNumber', errorId: 'creditCardNumberError', pattern: /^\d{16}$/, errorMessage: 'Please enter a valid 16-digit card number.' },
+                { id: 'creditCardCVV', errorId: 'creditCardCVVError', pattern: /^\d{3}$/, errorMessage: 'Please enter a valid 3-digit CVV.' },
+                { id: 'creditCardExpiry', errorId: 'creditCardExpiryError', pattern: /^\d{2}\/\d{2}$/, errorMessage: 'Please enter a valid expiry date (MM/YY).' },
+                { id: 'creditScore', errorId: 'creditScoreError', pattern: /^\d{3}$/, errorMessage: 'Please enter a valid 3-digit credit score.' }
+            ];
+
+            if (validateForm('userInfoForm', validations)) {
+                alert('VALID');
+            } else {
+                alert('INVALID');
+            }
+        });
+    </script> -->
+</body>
+</html>

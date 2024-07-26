@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'CreditCard/registerpage.css' %}">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <form action="">
+            <h1>Register</h1>
+            <div class="inputbox">
+                <input type="text" , placeholder="Username">
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="inputbox">
+                <input type="password" , placeholder="Password">
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <!-- <div class="rememberforgot">
+                <label >
+                    <input type="checkbox"> Remember Me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div> -->
+            <button type="button" class="btn">
+                <a href="#" style="text-decoration: none;">Register</a>
+            </button>
+            <div class="register">
+                <p>Already have an Account? <a href="{% url 'credit_fraud:loginPage' %}">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
