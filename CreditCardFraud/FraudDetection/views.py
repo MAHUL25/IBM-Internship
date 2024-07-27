@@ -4,7 +4,7 @@ from .FraudDetection import *
 # Create your views here.
 def index(request):
     return render(request, 'CreditCard/homepage.html', {
-        'value': 'Welcome',
+        'value': 'Credit Card Fraud Detection',
     })
 
 def Theform(request):
